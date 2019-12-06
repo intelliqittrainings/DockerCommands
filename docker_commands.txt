@@ -1,0 +1,239 @@
+
+
+
+
+1 Open https://docs.docker.com/docker-for-windows/install/
+2 Download docker for windows--->Install it
+3 Once docker is installed to excute the docker command use "Power shell"
+
+Note: Docker can be installed only on Windows 10 Prof 64 bit version or
+Windows 2016 Server edition
+
+Note: Once docker is installed on Windows it activates an application called
+HyperV.Once this application is activated it will not allow any other
+virtualization s/w to function
+
+
+Installing docker on Linux
+==============================
+1 Create an AWS ubuntu18 instance
+2 Open get.docker.com
+3 Copy the below 2 commands and paste in Ubuntu terminal
+  curl -fsSL https://get.docker.com -o get-docker.sh
+ 
+  sh get-docker.sh
+
+
+Important Docker commands
+================================
+Working on Images
+======================
+1 To download a docker image
+  docker pull image_name
+
+2 To upload a docker image into docker hub
+  docker push image_name
+
+3 To see the list of all the docker images in docker hub
+  docker image ls
+  (or)
+  docker images
+
+4 To delete a image
+  docker rmi image_name/image_id
+
+5 To delete all the unused images,networks,volumes etc
+  docker system prune -a
+
+6 To search for a docker image
+  docker search image_name
+
+7 To get detailed info about the docker image
+  docker inspect image_name/image_id
+
+8 To create a docker image from a container
+  docker commit container_name/container_id image_name
+
+9 To create a image from a dockerfile
+  docker build -t image_name .
+
+Working on Containers
+==========================
+10 To see the list of running containers
+   docker container ls
+
+11 To see the list of all the contianers running and stopped
+   docker ps -a
+
+12 To start a stopped container
+   docker start container_name/container_id
+
+13 To stop a running container
+   docker stop container_name/container_id
+
+14 To restart a container
+   docker restart container_name/container_id
+   To restart after 10 seconds
+   docker restart -t 10 container_name/container_id
+
+15 To delete a stopped container
+   docker rm container_name/container_id
+
+16 To delete a running container
+   docker rm -f container_name/container_id
+
+17 To stop all running containers
+   docker stop $(docker ps -aq)
+
+18 To delete all stopped containers
+   docker rm $(docker ps -aq)
+
+19 To delete a containers running and stopped
+   docker rm -f $(docker ps -aq)
+
+20 To get detailed info about any container
+   docker inspect container_name/container_id
+
+21 To see the ports used by a container
+   docker port container_name/container_id
+
+22 To see the logs genrated by a container
+   docker logs container_name/container_id
+
+23 To execute an application in a container from outside the container
+   docker exec -it container_name/container_id command_to_be_executed
+   Eg: To open bash shell in an already running container
+   docker exec -it container_name/container_id bash
+
+24 To come out of a container without exit
+   ctrl+p,ctrl+q
+
+25 To go into a container from which we have come out without exit
+   docker attach container_name/container_id
+
+26 To create a container from an image
+   docker run image_name/image_id
+   Run command options
+   --name   This is used to give a name for the container
+   -d       Used to run the container in detached mode in the background
+   -it      Used to open an interaxtive terminal in the container
+   -e       Used for passing environment variables to the container
+   -v       Used for attaching a volume to a container
+   --volumes-from  Used for sharing volumes between multiple containers
+   -p       Used for port mapping.This will link the container port(internal
+            port) with the host port(external port)
+           Eg: -p 8080:80 Here 8080 is the host port and 80 is the container port
+   -P      Used for automatic port mapping ie the container port will be mapped
+            with a host port that is greater than 30000
+   -rm     Used to delete a container on exit
+   --link  Used to create a link between multiple containers so as to create
+           a multi container architecture
+   --network   Used to start a container on a specific network
+   -m         Used to specify the max memory that can be used by a container
+   -c         Used to specify the cpus that should be alloted to a container
+   -h         Used to specify a hostname to a container
+
+Working on docker networks
+===============================
+27 To see the list of all the docker networks
+   docker network ls
+
+28 To create a new docker network
+   docker network create --driver driver_type network_name
+
+28 To get detailed info about a network
+   docker network inspect network_name/network_id
+
+29 To delete a network
+   docker network rm network_name/network_id
+
+30 To attach a running container to a network
+   docker network connect network_name/network_id container_name/container_id
+
+31 To remove a running container from a network
+   docker network disconnect network_name/network_id container_name/container_id
+
+Working on docker volumes
+===============================
+32 To see the list of all the docker volumes
+   docker volume ls
+
+33 To create a docker volume
+   docker volume create volume_name
+
+34 To get detailed info about a volume
+   docker volume inspect volume_name/volume_id
+
+35 To delete a volume
+   docker volume rm volume_name/volume_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
